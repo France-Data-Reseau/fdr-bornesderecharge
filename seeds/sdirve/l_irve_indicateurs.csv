@@ -1,0 +1,11 @@
+Valeur,Echelle,Définition
+taux_dispo,mois,Taux de disponibilité mensuel
+taux_occup,mois,Taux d'occupation mensuel
+sessions,mois,Nombre de sessions initiées
+sessions_reussies_abo,mois,Nombre de sessions réussies par les abonnés
+sessions_reussies_iti,mois,Nombre de sessions réussies en itinérance
+sessions_reussies_cb,mois,Nombre de sessions réussies en CB
+consommation_moy,mois,Consommation moyenne d'énergie par session de recharge réussie en kWh
+duree_moy,mois,Durée moyenne en minutes des sessions de charge réussies
+sessions_lunven,semaine,Moyenne des sessions réussies du lundi au vendredi lundi au vendredi
+sessions_samdim,semaine,Moyenne des sessions réussies du samedi au dimanche

@@ -1,0 +1,56 @@
+version: 2
+
+models :
+  - name: sdirve_std_indicateurs
+    description: l'union des indicateurs des toutes les sources
+    config:
+      tags: [ 'translation' ] # 'pii' TODO generate from source__type.sql (and rename it)
+      meta:
+        type: indicateurs
+        FDR_ROLE: echange
+        fal:
+          scripts:
+            #- dbt_packages/fdr_appuiscommuns/scripts/publish.py
+            - scripts/publish.py
+    columns:
+      - name: sdirveind_id_station
+        description:
+        tests:
+          - unique
+          - not_null
+
+  - name: sdirve_def_indicateurs_example_stg
+    description: description
+    config:
+      tags: [ 'example' ] # 'pii' TODO generate from source__type.sql (and rename it)
+      meta:
+        type: indicateurs
+        FDR_ROLE: source
+        FDR_TARGET: test
+        fal:
+          scripts:
+            #- dbt_packages/fdr_appuiscommuns/scripts/publish.py
+            - scripts/publish.py
+
+seeds :
+  - name: sdirve_def_indicateurs_example
+    description: "Parsing of a priori (made-up), covering examples of the definition / interface.
+      Examples have to be **as representative** of all possible data as possible because they are also the basis of the definition.
+      For instance, for a commune INSEE id field, they should also include a non-integer value such as 2A035 (Belvédère-Campomoro).
+      Methodology :
+      1. copy the first line(s) from the specification document (pour l'instant copié manuellement depuis le Gitbook, à terme pourrait générer ce dernier voire un métamodèle guidant l'outillage)
+      2. add line(s) to contain further values for until they are covering for all columns
+      3. NB. examples specific to each source type are provided in _source_example along their implementation (for which they are covering)"
+    config:
+      tags: ["example"] # echantillon, test
+      meta:
+        type: indicateurs
+      column_types:
+        sdirveind_date: text
+
+  - name: l_irve_indicateurs
+    description: liste de valeurs possibles pour le champ
+    config:
+      tags: ["dictionary"]
+      #column_types:
+        #sdirveind_date: text
