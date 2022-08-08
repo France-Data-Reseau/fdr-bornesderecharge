@@ -69,10 +69,10 @@ rename and generic parsing is rather done
     -- handle official "echange" fields that are not fully perfect :
     select
         --*,
-        {{ dbt_utils.star(parsed_source_relation, except=[
-            fieldPrefix + 'id_station']) }},
+        {{ dbt_utils.star(parsed_source_relation) }},
 
-        "{{ fieldPrefix }}id_station" as "{{ fieldPrefix }}src_id" -- TODO Q uuid ? ; source own id
+        "{{ fieldPrefix }}id_station" || '_' || "{{ fieldPrefix }}date" || '_' || "{{ fieldPrefix }}indicateur" as "{{ fieldPrefix }}src_id" -- generated ! TODO Q uuid ? ; source own id
+        -- NB. id_station comes from a public sdirve_inventaire so is deemed unique across sources
 
     from import_parsed
 
@@ -80,17 +80,8 @@ rename and generic parsing is rather done
 
     {{ fdr_appuiscommuns.add_generic_fields('specific_parsed', fieldPrefix, fdr_namespace, src_priority) }}
 
-), specific_renamed as (
-
-    select
-        *,
-
-        "{{ fieldPrefix }}id" as "{{ fieldPrefix }}id_station"
-
-    from with_generic_fields
-
 )
 
-select * from specific_renamed
+select * from with_generic_fields
 
 {% endmacro %}

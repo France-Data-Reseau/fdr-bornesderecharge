@@ -13,7 +13,7 @@ Materialized as view because of these uses.
   )
 }}
 
-{% set source_model = ref('sdirve_def_indicateurs_example_stg') %}
+{% set source_model = ref('sdirve_def_session_example_stg') %}
 
 select
     {{ dbt_utils.star(source_model) }}

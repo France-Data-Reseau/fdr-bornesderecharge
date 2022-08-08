@@ -1,2 +1,3 @@
 id_station,date,duree_validite,plage_horaire,indicateur,valeur
 FR*S74*P74137,2021-10-01,200,3,taux_dispo,0.89
+FR*S74*P74137,2021-10-01,200,3,taux_occup,0.71
