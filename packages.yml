@@ -7,7 +7,6 @@ packages:
   - package: data-mie/dbt_profiler
     version: 0.3.0
   # own :
-  #- git: "https://github.com/france-data-reseau/fdr_appuiscommuns.git"
+  #- git: "https://github.com/france-data-reseau/fdr-france-data-reseau.git"
   #  revision: 0.1.21
-  - local: ../fdr_appuiscommuns
   - local: ../fdr-france-data-reseau

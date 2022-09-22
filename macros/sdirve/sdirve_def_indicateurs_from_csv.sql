@@ -32,11 +32,11 @@ select
        #}
 
         "id_station"::text as "{{ fieldPrefix }}id_station", -- FR*S74*P74137 ; TODO Q uuid ? ; source own id Identifiant unique de la station
-        {{ fdr_appuiscommuns.to_date_or_null('date', source_relation, ['YYYY-MM-DD'], source_alias) }}::date as "{{ fieldPrefix }}date", -- 2021-10-01 Date de validité de l'indicateur
-        {{ fdr_appuiscommuns.to_numeric_or_null('duree_validite', source_relation, source_alias) }}::numeric as "{{ fieldPrefix }}duree_validite", -- 523, entier Durée de validité en heures de l'indicateur
-        {{ fdr_appuiscommuns.to_numeric_or_null('plage_horaire', source_relation, source_alias) }}::numeric as "{{ fieldPrefix }}plage_horaire", -- 3, Entier [0;24[  Plage horaire d'application de l'indicateur
+        {{ fdr_francedatareseau.to_date_or_null('date', source_relation, ['YYYY-MM-DD'], source_alias) }}::date as "{{ fieldPrefix }}date", -- 2021-10-01 Date de validité de l'indicateur
+        {{ fdr_francedatareseau.to_numeric_or_null('duree_validite', source_relation, source_alias) }}::numeric as "{{ fieldPrefix }}duree_validite", -- 523, entier Durée de validité en heures de l'indicateur
+        {{ fdr_francedatareseau.to_numeric_or_null('plage_horaire', source_relation, source_alias) }}::numeric as "{{ fieldPrefix }}plage_horaire", -- 3, Entier [0;24[  Plage horaire d'application de l'indicateur
         indicateur::text as "{{ fieldPrefix }}indicateur", -- taux_dispo l_irve_indicateur Nom de l'indicateur
-        {{ fdr_appuiscommuns.to_numeric_or_null('valeur', source_relation, source_alias) }}::numeric as "{{ fieldPrefix }}valeur" -- 0.89, flottant Valeur de l'indicateur
+        {{ fdr_francedatareseau.to_numeric_or_null('valeur', source_relation, source_alias) }}::numeric as "{{ fieldPrefix }}valeur" -- 0.89, flottant Valeur de l'indicateur
 
     from {{ source_model }}
 

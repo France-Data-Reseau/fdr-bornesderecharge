@@ -33,7 +33,7 @@ TODO :
 - OUI OU à chaque fois pour plus de concision et lisibilité select * (les champs en trop sont alors enlevés à la fin par la __definition) ?
 #}
 
-{% macro sdirve_def_indicateurs_translated(parsed_source_relation, src_priority=None) %}
+{% macro sdirve_indicateurs_translated(parsed_source_relation, src_priority=None) %}
 
 {% set modelVersion ='' %}
 
@@ -78,7 +78,7 @@ rename and generic parsing is rather done
 
 ), with_generic_fields as (
 
-    {{ fdr_appuiscommuns.add_generic_fields('specific_parsed', fieldPrefix, fdr_namespace, src_priority) }}
+    {{ fdr_francedatareseau.add_generic_fields('specific_parsed', fieldPrefix, fdr_namespace, src_priority) }}
 
 )
 

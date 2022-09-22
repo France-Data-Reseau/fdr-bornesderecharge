@@ -32,11 +32,11 @@ select
        #}
 
         "id_station"::text as "{{ fieldPrefix }}id_station", -- FR*S74*P74137 ; TODO Q uuid ? ; source own id Identifiant unique de la station
-        {{ fdr_appuiscommuns.to_date_or_null('date_debut', source_relation, ["YYYY-MM-DD HH24:MI:SS"], source_alias) }}::date as "{{ fieldPrefix }}date_debut", -- 2021-10-01 12:52:32 Début de la session
-        {{ fdr_appuiscommuns.to_date_or_null('date_fin', source_relation, ["YYYY-MM-DD HH24:MI:SS"], source_alias) }}::date as "{{ fieldPrefix }}date_fin", -- 2021-10-01 12:52:32 Début de la session
-        {{ fdr_appuiscommuns.to_numeric_or_null('duree_livraison', source_relation, source_alias) }}::numeric as "{{ fieldPrefix }}duree_livraison", -- 253 ; Durée de la livraison de l'énergie pendant la session
-        {{ fdr_appuiscommuns.to_numeric_or_null('puissance_max', source_relation, source_alias) }}::numeric as "{{ fieldPrefix }}puissance_max", -- 22 ; Puissance maximale appelée pendant la livraison kW
-        {{ fdr_appuiscommuns.to_numeric_or_null('consommation', source_relation, source_alias) }}::numeric as "{{ fieldPrefix }}consommation", -- 12.3 ; Energie livrée pendant la session en kWh
+        {{ fdr_francedatareseau.to_date_or_null('date_debut', source_relation, ["YYYY-MM-DD HH24:MI:SS"], source_alias) }}::date as "{{ fieldPrefix }}date_debut", -- 2021-10-01 12:52:32 Début de la session
+        {{ fdr_francedatareseau.to_date_or_null('date_fin', source_relation, ["YYYY-MM-DD HH24:MI:SS"], source_alias) }}::date as "{{ fieldPrefix }}date_fin", -- 2021-10-01 12:52:32 Début de la session
+        {{ fdr_francedatareseau.to_numeric_or_null('duree_livraison', source_relation, source_alias) }}::numeric as "{{ fieldPrefix }}duree_livraison", -- 253 ; Durée de la livraison de l'énergie pendant la session
+        {{ fdr_francedatareseau.to_numeric_or_null('puissance_max', source_relation, source_alias) }}::numeric as "{{ fieldPrefix }}puissance_max", -- 22 ; Puissance maximale appelée pendant la livraison kW
+        {{ fdr_francedatareseau.to_numeric_or_null('consommation', source_relation, source_alias) }}::numeric as "{{ fieldPrefix }}consommation", -- 12.3 ; Energie livrée pendant la session en kWh
         "nature_client"::text as "{{ fieldPrefix }}nature_client", -- abonne ; l_irve_clients Nature de client concerné par la recharge
         "operateur_mobilite"::text as "{{ fieldPrefix }}operateur_mobilite" -- Opérateur  ; Nom de l'opérateur de mobilité
 

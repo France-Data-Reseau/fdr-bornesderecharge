@@ -14,7 +14,7 @@ models :
             - scripts/publish.py
     columns:
       - name: sdirveind_id_station
-        description:
+        description: description
         tests:
           - unique
           - not_null
@@ -47,6 +47,75 @@ seeds :
         type: indicateurs
       column_types:
         sdirveind_date: text
+
+  - name: sdirve_def_session_example
+    description: "Parsing of a priori (made-up), covering examples of the definition / interface.
+      Examples have to be **as representative** of all possible data as possible because they are also the basis of the definition.
+      For instance, for a commune INSEE id field, they should also include a non-integer value such as 2A035 (Belvédère-Campomoro).
+      Methodology :
+      1. copy the first line(s) from the specification document (pour l'instant copié manuellement depuis le Gitbook, à terme pourrait générer ce dernier voire un métamodèle guidant l'outillage)
+      2. add line(s) to contain further values for until they are covering for all columns
+      3. NB. examples specific to each source type are provided in _source_example along their implementation (for which they are covering)"
+    config:
+      tags: ["example"] # echantillon, test
+      meta:
+        type: indicateurs
+      column_types:
+        sdirveind_date: text
+        sdirveind_date: text
+
+  - name: sdirve_def_station_example
+    description: "Parsing of a priori (made-up), covering examples of the definition / interface.
+      Examples have to be **as representative** of all possible data as possible because they are also the basis of the definition.
+      For instance, for a commune INSEE id field, they should also include a non-integer value such as 2A035 (Belvédère-Campomoro).
+      Methodology :
+      1. copy the first line(s) from the specification document (pour l'instant copié manuellement depuis le Gitbook, à terme pourrait générer ce dernier voire un métamodèle guidant l'outillage)
+      2. add line(s) to contain further values for until they are covering for all columns
+      3. NB. examples specific to each source type are provided in _source_example along their implementation (for which they are covering)"
+    config:
+      tags: ["example"] # echantillon, test
+      meta:
+        type: indicateurs
+      column_types:
+        nom_amenageur: text
+        siren_amenageur: text
+        contact_amenageur: text
+        nom_operateur: text
+        contact_operateur: text
+        telephone_operateur: text
+        nom_enseigne: text
+        id_station_itinerance: text
+        id_station_local: text
+        nom_station: text
+        implantation_station: text
+        adresse_station: text
+        code_insee_commune: text
+        coordonneesXY: text
+        #nbre_pdc: text
+        id_pdc_itinerance: text
+        id_pdc_local: text
+        puissance_nominale: text
+        prise_type_ef: text
+        prise_type_2: text
+        prise_type_combo_ccs: text
+        prise_type_chademo: text
+        prise_type_autre: text
+        gratuit: text
+        paiement_acte: text
+        paiement_cb: text
+        paiement_autre: text
+        tarification: text
+        condition_acces: text
+        reservation: text
+        horaires: text
+        accessibilite_pmr: text
+        restriction_gabarit: text
+        station_deux_roues: text
+        raccordement: text
+        num_pdl: text
+        date_mise_en_service: text
+        observations: text
+        date_maj: text
 
   - name: l_irve_indicateurs
     description: liste de valeurs possibles pour le champ

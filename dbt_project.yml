@@ -46,7 +46,7 @@ on-run-start:
     # so rather in a meta project OR OPERATION AS ADMIN
     #- '{{create_role_schema("appuiscommuns_test")}}'
     ##- '{% if not target.name %}{{create_views()}}{% endif %}'
-    - '{{ fdr_appuiscommuns.create_udfs() }}'
+    - '{{ fdr_francedatareseau.create_udfs() }}'
 
 on-run-end:
   - '{% if not target.name %}{{ fdr_appuiscommuns.create_views_per_data_owner() }}{% endif %}'
